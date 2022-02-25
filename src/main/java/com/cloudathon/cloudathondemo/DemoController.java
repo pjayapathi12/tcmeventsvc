@@ -13,10 +13,12 @@ public class DemoController {
 
     @Autowired
     private EmployeeRepository repository;
+    @Autowired
+    private TcmEventProducer tcmEventProducer;
 
-    @PostMapping("/employee")
-    public Employee addEmployee(@RequestBody Employee employee) {
-        return repository.save(employee);
+    @PostMapping("/publish/event")
+    public String publish(@RequestBody String event) {
+        return tcmEventProducer.produce(event);
     }
 
     @GetMapping("/employees")

@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://bannisters-sqlserver.database.windows.net:1433;database=bannisters-sqldb;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: bannistersuser
+    password: B@nnisters
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+server:
+  port: 8191
