@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://sqlserverbannisters.database.windows.net:1433;database=CloudathonDemoDB;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-    username: bannisters
+    url: jdbc:sqlserver://bannisters-sqlserver.database.windows.net:1433;database=bannisters-sqldb;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: bannistersuser
     password: B@nnisters
   jpa:
     show-sql: true
