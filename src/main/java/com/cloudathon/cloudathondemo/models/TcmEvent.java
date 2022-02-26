@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Date;
 import java.util.List;
 
 @JsonIgnoreProperties
@@ -32,7 +33,29 @@ public class TcmEvent {
 
         String resourceType;
         String resourceName;
+        List<ErrorStat> errorStats;
 
+    }
+
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Data
+    @FieldDefaults(level = AccessLevel.PRIVATE)
+    public static class ErrorStat {
+
+        String errorType;
+        String errorDetails;
+        List<DailyStat> dailyStats;
+    }
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Data
+    @FieldDefaults(level = AccessLevel.PRIVATE)
+    public static class DailyStat {
+
+        int prodCount;
+        int qaCount;
+        Date date;
     }
 
 }
