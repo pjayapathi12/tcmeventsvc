@@ -21,39 +21,19 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@SpringBootApplication
+
 @EnableKafka
 @Configuration
-@ComponentScan(basePackages = "com.cloudathon.cloudathondemo")
-public class CloudathondemoApplication {
+public class KafkaConsumerConfig {
 
     @Value(value = "${spring.kafka.properties.bootstrap.servers}")
     private String bootstrapAddress;
-
-    public static void main(String[] args) {
-        SpringApplication.run(CloudathondemoApplication.class, args);
-    }
-
-    @Bean
-    public ObjectMapper getLessStrictObjectMapper() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
-        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
-        return objectMapper;
-    }
-
-    @Bean(name = "tcmEventFlowFactory")
-    public FactoryBean tcmEventFlowFactory() {
-        ServiceLocatorFactoryBean serviceLocatorFactoryBean = new ServiceLocatorFactoryBean();
-        serviceLocatorFactoryBean.setServiceLocatorInterface(TcmEventFlowFactory.class);
-        return serviceLocatorFactoryBean;
-    }
 
     /*
     @Bean
@@ -68,5 +48,35 @@ public class CloudathondemoApplication {
 
     }
     */
+
+    @Bean
+    public ConsumerFactory<String, String> consumerFactory() {
+        Map<String, Object> props = new HashMap<>();
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
+                bootstrapAddress);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG,
+                "mygroupid");
+        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
+                StringDeserializer.class);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
+                StringDeserializer.class);
+        props.put(JsonDeserializer.TRUSTED_PACKAGES, "com.fasterxml.jackson.databind");
+        props.put(SaslConfigs.SASL_MECHANISM, "PLAIN" );
+        props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
+        props.put(SaslConfigs.SASL_JAAS_CONFIG,"org.apache.kafka.common.security.plain.PlainLoginModule   required username='GIWKRTNEHMYH6RR5'   password='Xk6alvcrAC8Sk5SsdcMgpofdKixxqogXMgWYvzrRmfdStKQ9qELdrxBm1sAbCtc9';" );
+        return new DefaultKafkaConsumerFactory<>(props);
+    }
+
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
+
+        ConcurrentKafkaListenerContainerFactory<String, String> factory =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory());
+        factory.setAckDiscarded(true);
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
+        return factory;
+    }
+
 
 }

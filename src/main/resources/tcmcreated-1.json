@@ -1,0 +1,13 @@
+{
+  "eventType": "TcmCreated",
+  "eonId": "40101",
+  "submitter": "huzac",
+  "eventTimestamp": "2022-02-24T12:45:43.800-0500",
+  "resources": [{
+    "resourceType": "ui",
+    "resourceName": "cloudathonui"
+  }, {
+    "resourceType": "java",
+    "resourceName": "tcmeventsvc"
+  }]
+}

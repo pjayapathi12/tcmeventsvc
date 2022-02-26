@@ -1,4 +1,4 @@
-package com.cloudathon.cloudathondemo.entity;
+package com.cloudathon.cloudathondemo.persistence.entity;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
