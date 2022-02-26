@@ -11,6 +11,8 @@ import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Log4j2
 @Component
 public class TcmEventDispatcher {
@@ -20,7 +22,7 @@ public class TcmEventDispatcher {
     @Autowired
     private TcmEventFlowFactory tcmEventFlowFactory;
 
-    public void processEvent(TcmEvent tcmEvent) throws JsonProcessingException {
+    public void processEvent(TcmEvent tcmEvent) throws IOException {
         log.info("received {}", tcmEvent);
 
         TcmEventFlowInterface flowService = null;

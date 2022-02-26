@@ -1,0 +1,13 @@
+[
+  {
+    "errorType": "500",
+    "errorDetails": "internal server error",
+    "dailyStats": [
+      {
+        "prodCount": 5,
+        "qaCount": 90,
+        "date": "2022-02-25"
+      }
+    ]
+  }
+]

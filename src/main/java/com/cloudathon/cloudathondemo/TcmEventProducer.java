@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 @Log4j2
-@Component
+@Service
 public class TcmEventProducer {
 
     @Autowired
-    private  KafkaTemplate<String, ProducerRecord> producer;
+    private  KafkaTemplate<String, String> producer;
     @Value("${io.confluent.developer.config.topic.name}")
     private String topic;
 
@@ -21,9 +22,9 @@ public class TcmEventProducer {
     public String produce(String event) {
         // Produce sample data
         final String key = "alice";
-        ProducerRecord<String, String> record = new ProducerRecord<>(key, event);
-        log.info("Producing record: {}\t{}", key, record);
-        producer.send(topic, key, record).addCallback(
+        //ProducerRecord<String, String> record = new ProducerRecord<>(key, event);
+        log.info("Producing record: {}\t{}", key, event);
+        producer.send(topic, key, event).addCallback(
                 result -> {
                     final RecordMetadata m;
                     if (result != null) {
