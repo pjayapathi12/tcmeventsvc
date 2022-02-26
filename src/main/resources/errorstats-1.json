@@ -1,12 +1,34 @@
 [
   {
     "errorType": "500",
+    "errorName": "clientauth/mergeForms",
     "errorDetails": "internal server error",
-    "dailyStats": [
+    "errorData": [
       {
-        "prodCount": 5,
-        "qaCount": 90,
-        "date": "2022-02-25"
+        "env": "prod",
+        "total": 15,
+        "dailyStats": [
+          {
+            "count": 5,
+            "date": "2022-02-25"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-24"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-23"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-22"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-21"
+          }
+        ]
       }
     ]
   }

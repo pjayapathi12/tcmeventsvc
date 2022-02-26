@@ -19,7 +19,8 @@ public class TcmEventConsumer {
     private TcmEventDispatcher dispatcher;
 
     //@KafkaListener(topics = "#{'${io.confluent.developer.config.topic.name}'}", id = "tcmEvents", clientIdPrefix = "tcmEventListener")
-    @KafkaListener(topics = "#{'${io.confluent.developer.config.topic.name}'}", containerFactory= "kafkaListenerContainerFactory", groupId = "mygroupid")
+    @KafkaListener(topics = "#{'${io.confluent.developer.config.topic.name}'}", containerFactory= "kafkaListenerContainerFactory",
+            groupId = "mygroupid")
     public void consume(final ConsumerRecord<String, String> consumerRecord, Acknowledgment acknowledgment)  {
         log.info("received {} {}", consumerRecord.key(), consumerRecord.value());
         try {
@@ -27,6 +28,7 @@ public class TcmEventConsumer {
             acknowledgment.acknowledge();
             dispatcher.processEvent(tcmEvent);
         }catch (Exception e) {
+            e.printStackTrace();
             log.info("Exception encountered while processing event ==> {}", e.getMessage());
         }
 

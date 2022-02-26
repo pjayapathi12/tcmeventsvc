@@ -45,7 +45,19 @@ public class TcmEvent {
     public static class ErrorStat {
 
         String errorType;
-        String errorDetails;
+        String errorName;
+        String jira;
+        String jiraStatus;
+        List<ErrorData> errorData;
+    }
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Data
+    @FieldDefaults(level = AccessLevel.PRIVATE)
+    public static class ErrorData {
+
+        String env;
+        int total;
         List<DailyStat> dailyStats;
     }
 
@@ -54,8 +66,7 @@ public class TcmEvent {
     @FieldDefaults(level = AccessLevel.PRIVATE)
     public static class DailyStat {
 
-        int prodCount;
-        int qaCount;
+        int count;
         Date date;
     }
 

@@ -40,5 +40,5 @@ public class ErrorStats {
 
     @Lob
     @Column(name = "DATA")
-    Clob data;
+    String data;
 }

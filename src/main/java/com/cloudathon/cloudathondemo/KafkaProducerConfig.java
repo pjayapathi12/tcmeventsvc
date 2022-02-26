@@ -38,10 +38,15 @@ public class KafkaProducerConfig {
                 StringSerializer.class);
         configProps.put(SaslConfigs.SASL_MECHANISM, "PLAIN" );
         configProps.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
+        configProps.put(ProducerConfig.CLIENT_ID_CONFIG, "myclientid");
+        configProps.put(ProducerConfig.ACKS_CONFIG,"all");
+        configProps.put("connections.max.idle.ms", "60000");
+        configProps.put(SaslConfigs.SASL_JAAS_CONFIG,"org.apache.kafka.common.security.plain.PlainLoginModule   required username='GIWKRTNEHMYH6RR5'   password='Xk6alvcrAC8Sk5SsdcMgpofdKixxqogXMgWYvzrRmfdStKQ9qELdrxBm1sAbCtc9';" );
+
         return new DefaultKafkaProducerFactory<>(configProps);
     }
 
-    @Bean
+    @Bean("kafkaTemplate")
     public KafkaTemplate<String, String> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }

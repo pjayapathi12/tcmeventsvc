@@ -56,6 +56,7 @@ public class KafkaConsumerConfig {
                 bootstrapAddress);
         props.put(ConsumerConfig.GROUP_ID_CONFIG,
                 "mygroupid");
+        props.put(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG, "tcmeventsvc-groupinstance");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
                 StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
