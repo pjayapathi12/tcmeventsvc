@@ -21,6 +21,7 @@ import java.util.List;
 public class TcmEvent {
 
     String eventType;
+    String tcmId;
     String eonId;
     String submitter;
     String eventTimestamp;
