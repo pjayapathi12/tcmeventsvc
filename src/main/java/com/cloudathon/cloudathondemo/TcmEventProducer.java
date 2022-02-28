@@ -29,16 +29,17 @@ public class TcmEventProducer {
 
             @Override
             public void onSuccess(SendResult<String, String> result) {
-                System.out.println("Sent message=[" + event +
+                log.info("Sent message=[" + event +
                         "] with offset=[" + result.getRecordMetadata().offset() + "]");
             }
             @Override
             public void onFailure(Throwable ex) {
                 ex.printStackTrace();
-                System.out.println("Unable to send message=["
+                log.info("Unable to send message=["
                         + event + "] due to : " + ex.getMessage());
             }
         });
+        kafkaTemplate.flush();
         log.info("message was produced to topic {}", topic);
         return "success";
     }

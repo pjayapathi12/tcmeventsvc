@@ -55,7 +55,7 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
                 bootstrapAddress);
         props.put(ConsumerConfig.GROUP_ID_CONFIG,
-                "mygroupid");
+                "mytcmeventsvcgroupid");
         props.put("session.timeout.ms", "120000");
         props.put(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG, "tcmeventsvc-groupinstance");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,

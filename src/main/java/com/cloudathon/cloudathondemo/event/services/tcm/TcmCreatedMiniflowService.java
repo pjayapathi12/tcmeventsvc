@@ -40,7 +40,7 @@ public class TcmCreatedMiniflowService implements TcmEventFlowInterface {
             File file = resource.getFile();
             List<TcmEvent.ErrorStat> errorStat = objectMapper.readValue(file, new TypeReference<List<TcmEvent.ErrorStat>>() {
             });
-            log.info("rror stats retried from file ==> {}", errorStat);
+            log.info("error stats retrieved from file ==> {}", errorStat);
             tcmEvent.getResources().forEach(x -> x.setErrorStats(errorStat) ); // set each resource with same errorstat
         } catch (Exception e) {
             log.info("error encountered while trying to open file");

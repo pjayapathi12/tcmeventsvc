@@ -63,21 +63,24 @@ public class TcmResourcesEnrichedMiniflowService implements TcmEventFlowInterfac
         if (tcmEvent == null || tcmEvent.getResources() == null || tcmEvent.getResources().isEmpty())
             return null;
         List<ErrorStats> errorStatsList = new ArrayList<>();
-        tcmEvent.getResources().forEach(x -> {
-            x.getErrorStats().forEach(xx -> {
-                ErrorStats errorStats = new ErrorStats();
-                errorStats.setErrorName(xx.getErrorName());
-                errorStats.setErrorType(xx.getErrorType());
-                errorStats.setTcm(tcmEvent.getTcmId());
-                errorStats.setResourceName(x.getResourceName());
-                try {
-                    errorStats.setData(objectMapper.writeValueAsString(xx.getErrorData()));
-                } catch (JsonProcessingException e) {
-                    e.printStackTrace();
-                }
-                errorStatsList.add(errorStats);
-            });
-        });
+        tcmEvent.getResources()
+                .stream().filter(x -> x != null)
+                .forEach(x -> {
+                    x.getErrorStats().stream().filter(xx -> xx != null)
+                            .forEach(xx -> {
+                                ErrorStats errorStats = new ErrorStats();
+                                errorStats.setErrorName(xx.getErrorName());
+                                errorStats.setErrorType(xx.getErrorType());
+                                errorStats.setTcm(tcmEvent.getTcmId());
+                                errorStats.setResourceName(x.getResourceName());
+                                try {
+                                    errorStats.setData(objectMapper.writeValueAsString(xx.getErrorData()));
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                errorStatsList.add(errorStats);
+                            });
+                });
 
         return errorStatsList;
     }
