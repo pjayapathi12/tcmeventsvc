@@ -31,8 +31,17 @@ public class TcmCreatedMiniflowService implements TcmEventFlowInterface {
     public void process(TcmEvent tcmEvent) throws IOException {
         log.info("received {}", tcmEvent);
 
+        Resource resource;
         // 1. get data from mock file
-        Resource resource = resourceLoader.getResource("classpath:errorstats-1.json");
+        if (tcmEvent.getTcmId().equalsIgnoreCase("111111111"))
+            resource = resourceLoader.getResource("classpath:errorstats-2.json");
+        else if (tcmEvent.getTcmId().equalsIgnoreCase("222222222"))
+            resource = resourceLoader.getResource("classpath:errorstats-3.json");
+        else if (tcmEvent.getTcmId().equalsIgnoreCase("333333333"))
+            resource = resourceLoader.getResource("classpath:errorstats-4.json");
+        else
+            resource = resourceLoader.getResource("classpath:errorstats-1.json");
+
         InputStream inputStream = null;
 
         try {

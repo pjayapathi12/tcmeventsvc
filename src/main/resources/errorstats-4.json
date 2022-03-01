@@ -3,8 +3,8 @@
     "errorType": "500",
     "errorName": "clientauth/mergeForms",
     "errorDetails": "internal server error",
-    "jira": "ARMAPPROVAL-3098",
-    "jiraStatus": "Open",
+    "jira": "",
+    "jiraStatus": "",
     "errorData": [
       {
         "env": "prod",

@@ -10,5 +10,12 @@
   }, {
     "resourceType": "java",
     "resourceName": "tcmeventsvc"
-  }]
+  },
+    {
+      "resourceType": "java",
+      "resourceName": "tcmredissvc"
+    }, {
+      "resourceType": "java",
+      "resourceName": "cloudathondemosvc"
+    }]
 }

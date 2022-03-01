@@ -52,6 +52,8 @@ public class TcmResourcesEnrichedMiniflowService implements TcmEventFlowInterfac
             errorStatsDao.save(x);
         });
 
+        tcmDao.flush();
+        errorStatsDao.flush();
         // 2. publish TcmResourcesDbSaved event to bus
         tcmEvent.setEventType("TcmResourcesDbSaved");
         producer.produce(objectMapper.writeValueAsString(tcmEvent));
@@ -72,6 +74,8 @@ public class TcmResourcesEnrichedMiniflowService implements TcmEventFlowInterfac
                                 errorStats.setErrorName(xx.getErrorName());
                                 errorStats.setErrorType(xx.getErrorType());
                                 errorStats.setTcm(tcmEvent.getTcmId());
+                                errorStats.setJira(xx.getJira());
+                                errorStats.setJiraStatus(xx.getJiraStatus());
                                 errorStats.setResourceName(x.getResourceName());
                                 try {
                                     errorStats.setData(objectMapper.writeValueAsString(xx.getErrorData()));

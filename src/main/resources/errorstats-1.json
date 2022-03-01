@@ -3,6 +3,191 @@
     "errorType": "500",
     "errorName": "clientauth/mergeForms",
     "errorDetails": "internal server error",
+    "jira": "ARMAPPROVAL-3098",
+    "jiraStatus": "Open",
+    "errorData": [
+      {
+        "env": "prod",
+        "total": 15,
+        "dailyStats": [
+          {
+            "count": 5,
+            "date": "2022-02-25"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-24"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-23"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-22"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-21"
+          }
+        ]
+      },
+      {
+        "env": "qa",
+        "total": 15,
+        "dailyStats": [
+          {
+            "count": 5,
+            "date": "2022-02-25"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-24"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-23"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-22"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-21"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "errorType": "400",
+    "errorName": "clientauth/mergeForms",
+    "errorDetails": "internal server error",
+    "jira": "ARMAPPROVAL-3098",
+    "jiraStatus": "Open",
+    "errorData": [
+      {
+        "env": "prod",
+        "total": 15,
+        "dailyStats": [
+          {
+            "count": 5,
+            "date": "2022-02-25"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-24"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-23"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-22"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-21"
+          }
+        ]
+      },
+      {
+        "env": "qa",
+        "total": 15,
+        "dailyStats": [
+          {
+            "count": 5,
+            "date": "2022-02-25"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-24"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-23"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-22"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-21"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "errorType": "401",
+    "errorName": "clientauth/mergeForms",
+    "errorDetails": "internal server error",
+    "jira": "ARMAPPROVAL-3098",
+    "jiraStatus": "Open",
+    "errorData": [
+      {
+        "env": "prod",
+        "total": 15,
+        "dailyStats": [
+          {
+            "count": 5,
+            "date": "2022-02-25"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-24"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-23"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-22"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-21"
+          }
+        ]
+      },
+      {
+        "env": "qa",
+        "total": 15,
+        "dailyStats": [
+          {
+            "count": 5,
+            "date": "2022-02-25"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-24"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-23"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-22"
+          },
+          {
+            "count": 5,
+            "date": "2022-02-21"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "errorType": "403",
+    "errorName": "clientauth/mergeForms",
+    "errorDetails": "internal server error",
+    "jira": "ARMAPPROVAL-3098",
+    "jiraStatus": "Open",
     "errorData": [
       {
         "env": "prod",
